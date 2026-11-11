@@ -28,3 +28,6 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project Architecture
+- Keep the society website on the project's TanStack Start routing stack and integrate its data only with the user's explicitly chosen external backend, because Lovable Cloud is prohibited for this project.
