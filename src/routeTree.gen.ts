@@ -9,27 +9,284 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AllLecturesRouteImport } from './routes/all-lectures'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as LecturesRouteImport } from './routes/lectures'
+import { Route as RecentlyConductedRouteImport } from './routes/recently-conducted'
+import { Route as VideosRouteImport } from './routes/videos'
+import { Route as AdminLoginRouteImport } from './routes/admin.login'
+import { Route as GalleryAlbumIdRouteImport } from './routes/gallery.$albumId'
+import { Route as LecturesLectureIdRouteImport } from './routes/lectures.$lectureId'
 
-export interface FileRoutesByFullPath {}
-export interface FileRoutesByTo {}
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AllLecturesRoute = AllLecturesRouteImport.update({
+  id: '/all-lectures',
+  path: '/all-lectures',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LecturesRoute = LecturesRouteImport.update({
+  id: '/lectures',
+  path: '/lectures',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RecentlyConductedRoute = RecentlyConductedRouteImport.update({
+  id: '/recently-conducted',
+  path: '/recently-conducted',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VideosRoute = VideosRouteImport.update({
+  id: '/videos',
+  path: '/videos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/admin/login',
+  path: '/admin/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryAlbumIdRoute = GalleryAlbumIdRouteImport.update({
+  id: '/$albumId',
+  path: '/$albumId',
+  getParentRoute: () => GalleryRoute,
+} as any)
+const LecturesLectureIdRoute = LecturesLectureIdRouteImport.update({
+  id: '/$lectureId',
+  path: '/$lectureId',
+  getParentRoute: () => LecturesRoute,
+} as any)
+
+export interface FileRoutesByFullPath {
+  '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/all-lectures': typeof AllLecturesRoute
+  '/contact': typeof ContactRoute
+  '/gallery': typeof GalleryRouteWithChildren
+  '/lectures': typeof LecturesRouteWithChildren
+  '/recently-conducted': typeof RecentlyConductedRoute
+  '/videos': typeof VideosRoute
+  '/admin/login': typeof AdminLoginRoute
+  '/gallery/$albumId': typeof GalleryAlbumIdRoute
+  '/lectures/$lectureId': typeof LecturesLectureIdRoute
+}
+export interface FileRoutesByTo {
+  '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/all-lectures': typeof AllLecturesRoute
+  '/contact': typeof ContactRoute
+  '/gallery': typeof GalleryRouteWithChildren
+  '/lectures': typeof LecturesRouteWithChildren
+  '/recently-conducted': typeof RecentlyConductedRoute
+  '/videos': typeof VideosRoute
+  '/admin/login': typeof AdminLoginRoute
+  '/gallery/$albumId': typeof GalleryAlbumIdRoute
+  '/lectures/$lectureId': typeof LecturesLectureIdRoute
+}
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
+  '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/all-lectures': typeof AllLecturesRoute
+  '/contact': typeof ContactRoute
+  '/gallery': typeof GalleryRouteWithChildren
+  '/lectures': typeof LecturesRouteWithChildren
+  '/recently-conducted': typeof RecentlyConductedRoute
+  '/videos': typeof VideosRoute
+  '/admin/login': typeof AdminLoginRoute
+  '/gallery/$albumId': typeof GalleryAlbumIdRoute
+  '/lectures/$lectureId': typeof LecturesLectureIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: never
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/all-lectures'
+    | '/contact'
+    | '/gallery'
+    | '/lectures'
+    | '/recently-conducted'
+    | '/videos'
+    | '/admin/login'
+    | '/gallery/$albumId'
+    | '/lectures/$lectureId'
   fileRoutesByTo: FileRoutesByTo
-  to: never
-  id: '__root__'
+  to:
+    | '/'
+    | '/about'
+    | '/all-lectures'
+    | '/contact'
+    | '/gallery'
+    | '/lectures'
+    | '/recently-conducted'
+    | '/videos'
+    | '/admin/login'
+    | '/gallery/$albumId'
+    | '/lectures/$lectureId'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/all-lectures'
+    | '/contact'
+    | '/gallery'
+    | '/lectures'
+    | '/recently-conducted'
+    | '/videos'
+    | '/admin/login'
+    | '/gallery/$albumId'
+    | '/lectures/$lectureId'
   fileRoutesById: FileRoutesById
 }
-export interface RootRouteChildren {}
-
-declare module '@tanstack/react-router' {
-  interface FileRoutesByPath {}
+export interface RootRouteChildren {
+  IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AllLecturesRoute: typeof AllLecturesRoute
+  ContactRoute: typeof ContactRoute
+  GalleryRoute: typeof GalleryRouteWithChildren
+  LecturesRoute: typeof LecturesRouteWithChildren
+  RecentlyConductedRoute: typeof RecentlyConductedRoute
+  VideosRoute: typeof VideosRoute
+  AdminLoginRoute: typeof AdminLoginRoute
 }
 
-const rootRouteChildren: RootRouteChildren = {}
+declare module '@tanstack/react-router' {
+  interface FileRoutesByPath {
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/all-lectures': {
+      id: '/all-lectures'
+      path: '/all-lectures'
+      fullPath: '/all-lectures'
+      preLoaderRoute: typeof AllLecturesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lectures': {
+      id: '/lectures'
+      path: '/lectures'
+      fullPath: '/lectures'
+      preLoaderRoute: typeof LecturesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/recently-conducted': {
+      id: '/recently-conducted'
+      path: '/recently-conducted'
+      fullPath: '/recently-conducted'
+      preLoaderRoute: typeof RecentlyConductedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/videos': {
+      id: '/videos'
+      path: '/videos'
+      fullPath: '/videos'
+      preLoaderRoute: typeof VideosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/login': {
+      id: '/admin/login'
+      path: '/admin/login'
+      fullPath: '/admin/login'
+      preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery/$albumId': {
+      id: '/gallery/$albumId'
+      path: '/$albumId'
+      fullPath: '/gallery/$albumId'
+      preLoaderRoute: typeof GalleryAlbumIdRouteImport
+      parentRoute: typeof GalleryRoute
+    }
+    '/lectures/$lectureId': {
+      id: '/lectures/$lectureId'
+      path: '/$lectureId'
+      fullPath: '/lectures/$lectureId'
+      preLoaderRoute: typeof LecturesLectureIdRouteImport
+      parentRoute: typeof LecturesRoute
+    }
+  }
+}
+
+interface GalleryRouteChildren {
+  GalleryAlbumIdRoute: typeof GalleryAlbumIdRoute
+}
+
+const GalleryRouteChildren: GalleryRouteChildren = {
+  GalleryAlbumIdRoute: GalleryAlbumIdRoute,
+}
+
+const GalleryRouteWithChildren =
+  GalleryRoute._addFileChildren(GalleryRouteChildren)
+
+interface LecturesRouteChildren {
+  LecturesLectureIdRoute: typeof LecturesLectureIdRoute
+}
+
+const LecturesRouteChildren: LecturesRouteChildren = {
+  LecturesLectureIdRoute: LecturesLectureIdRoute,
+}
+
+const LecturesRouteWithChildren = LecturesRoute._addFileChildren(
+  LecturesRouteChildren,
+)
+
+const rootRouteChildren: RootRouteChildren = {
+  IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AllLecturesRoute: AllLecturesRoute,
+  ContactRoute: ContactRoute,
+  GalleryRoute: GalleryRouteWithChildren,
+  LecturesRoute: LecturesRouteWithChildren,
+  RecentlyConductedRoute: RecentlyConductedRoute,
+  VideosRoute: VideosRoute,
+  AdminLoginRoute: AdminLoginRoute,
+}
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
