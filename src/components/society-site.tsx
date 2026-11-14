@@ -152,6 +152,10 @@ function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const t = copy[language];
   const direction = language === "ur" ? "rtl" : "ltr";
+  const navigation = navPaths.flatMap((path, index) => {
+    const label = t.nav[index];
+    return label ? [{ path, label }] : [];
+  });
 
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur">
@@ -164,8 +168,8 @@ function SiteHeader() {
           </span>
         </Link>
         <nav className="hidden items-center gap-5 xl:flex" aria-label="Main navigation">
-          {t.nav.map((label, index) => (
-            <Link key={navPaths[index]} to={navPaths[index]} className={`${language === "ur" ? "font-urdu text-sm" : "text-xs"} py-3 font-semibold text-foreground/80 transition-colors hover:text-teal`}>
+          {navigation.map(({ path, label }) => (
+            <Link key={path} to={path} className={`${language === "ur" ? "font-urdu text-sm" : "text-xs"} py-3 font-semibold text-foreground/80 transition-colors hover:text-teal`}>
               {label}
             </Link>
           ))}
@@ -179,8 +183,8 @@ function SiteHeader() {
       </div>
       {menuOpen && (
         <nav className="grid gap-1 border-t border-border bg-background px-5 py-3 xl:hidden" dir={direction} aria-label="Mobile navigation">
-          {t.nav.map((label, index) => (
-            <Link key={navPaths[index]} to={navPaths[index]} onClick={() => setMenuOpen(false)} className={`${language === "ur" ? "font-urdu text-right" : "text-sm"} rounded-sm px-4 py-3 font-semibold text-foreground hover:bg-pearl hover:text-teal`}>
+          {navigation.map(({ path, label }) => (
+            <Link key={path} to={path} onClick={() => setMenuOpen(false)} className={`${language === "ur" ? "font-urdu text-right" : "text-sm"} rounded-sm px-4 py-3 font-semibold text-foreground hover:bg-pearl hover:text-teal`}>
               {label}
             </Link>
           ))}
