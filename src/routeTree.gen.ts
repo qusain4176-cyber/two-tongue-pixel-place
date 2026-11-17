@@ -10,40 +10,29 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AboutRouteImport } from './routes/about'
-import { Route as AllLecturesRouteImport } from './routes/all-lectures'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as AimsGoalsRouteImport } from './routes/aims-goals'
+import { Route as DonationRouteImport } from './routes/donation'
 import { Route as LecturesRouteImport } from './routes/lectures'
-import { Route as RecentlyConductedRouteImport } from './routes/recently-conducted'
-import { Route as VideosRouteImport } from './routes/videos'
-import { Route as AdminLoginRouteImport } from './routes/admin.login'
-import { Route as GalleryAlbumIdRouteImport } from './routes/gallery.$albumId'
-import { Route as LecturesLectureIdRouteImport } from './routes/lectures.$lectureId'
+import { Route as MajalisRouteImport } from './routes/majalis'
+import { Route as OpenBookQuizRouteImport } from './routes/open-book-quiz'
+import { Route as PublicationsRouteImport } from './routes/publications'
+import { Route as QuizDashboardRouteImport } from './routes/quiz-dashboard'
+import { Route as SignBoardRouteImport } from './routes/sign-board'
+import { Route as SoftwareRouteImport } from './routes/software'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
+const AimsGoalsRoute = AimsGoalsRouteImport.update({
+  id: '/aims-goals',
+  path: '/aims-goals',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AllLecturesRoute = AllLecturesRouteImport.update({
-  id: '/all-lectures',
-  path: '/all-lectures',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GalleryRoute = GalleryRouteImport.update({
-  id: '/gallery',
-  path: '/gallery',
+const DonationRoute = DonationRouteImport.update({
+  id: '/donation',
+  path: '/donation',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LecturesRoute = LecturesRouteImport.update({
@@ -51,124 +40,124 @@ const LecturesRoute = LecturesRouteImport.update({
   path: '/lectures',
   getParentRoute: () => rootRouteImport,
 } as any)
-const RecentlyConductedRoute = RecentlyConductedRouteImport.update({
-  id: '/recently-conducted',
-  path: '/recently-conducted',
+const MajalisRoute = MajalisRouteImport.update({
+  id: '/majalis',
+  path: '/majalis',
   getParentRoute: () => rootRouteImport,
 } as any)
-const VideosRoute = VideosRouteImport.update({
-  id: '/videos',
-  path: '/videos',
+const OpenBookQuizRoute = OpenBookQuizRouteImport.update({
+  id: '/open-book-quiz',
+  path: '/open-book-quiz',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminLoginRoute = AdminLoginRouteImport.update({
-  id: '/admin/login',
-  path: '/admin/login',
+const PublicationsRoute = PublicationsRouteImport.update({
+  id: '/publications',
+  path: '/publications',
   getParentRoute: () => rootRouteImport,
 } as any)
-const GalleryAlbumIdRoute = GalleryAlbumIdRouteImport.update({
-  id: '/$albumId',
-  path: '/$albumId',
-  getParentRoute: () => GalleryRoute,
+const QuizDashboardRoute = QuizDashboardRouteImport.update({
+  id: '/quiz-dashboard',
+  path: '/quiz-dashboard',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const LecturesLectureIdRoute = LecturesLectureIdRouteImport.update({
-  id: '/$lectureId',
-  path: '/$lectureId',
-  getParentRoute: () => LecturesRoute,
+const SignBoardRoute = SignBoardRouteImport.update({
+  id: '/sign-board',
+  path: '/sign-board',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SoftwareRoute = SoftwareRouteImport.update({
+  id: '/software',
+  path: '/software',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/all-lectures': typeof AllLecturesRoute
-  '/contact': typeof ContactRoute
-  '/gallery': typeof GalleryRouteWithChildren
-  '/lectures': typeof LecturesRouteWithChildren
-  '/recently-conducted': typeof RecentlyConductedRoute
-  '/videos': typeof VideosRoute
-  '/admin/login': typeof AdminLoginRoute
-  '/gallery/$albumId': typeof GalleryAlbumIdRoute
-  '/lectures/$lectureId': typeof LecturesLectureIdRoute
+  '/aims-goals': typeof AimsGoalsRoute
+  '/donation': typeof DonationRoute
+  '/lectures': typeof LecturesRoute
+  '/majalis': typeof MajalisRoute
+  '/open-book-quiz': typeof OpenBookQuizRoute
+  '/publications': typeof PublicationsRoute
+  '/quiz-dashboard': typeof QuizDashboardRoute
+  '/sign-board': typeof SignBoardRoute
+  '/software': typeof SoftwareRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/all-lectures': typeof AllLecturesRoute
-  '/contact': typeof ContactRoute
-  '/gallery': typeof GalleryRouteWithChildren
-  '/lectures': typeof LecturesRouteWithChildren
-  '/recently-conducted': typeof RecentlyConductedRoute
-  '/videos': typeof VideosRoute
-  '/admin/login': typeof AdminLoginRoute
-  '/gallery/$albumId': typeof GalleryAlbumIdRoute
-  '/lectures/$lectureId': typeof LecturesLectureIdRoute
+  '/aims-goals': typeof AimsGoalsRoute
+  '/donation': typeof DonationRoute
+  '/lectures': typeof LecturesRoute
+  '/majalis': typeof MajalisRoute
+  '/open-book-quiz': typeof OpenBookQuizRoute
+  '/publications': typeof PublicationsRoute
+  '/quiz-dashboard': typeof QuizDashboardRoute
+  '/sign-board': typeof SignBoardRoute
+  '/software': typeof SoftwareRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/all-lectures': typeof AllLecturesRoute
-  '/contact': typeof ContactRoute
-  '/gallery': typeof GalleryRouteWithChildren
-  '/lectures': typeof LecturesRouteWithChildren
-  '/recently-conducted': typeof RecentlyConductedRoute
-  '/videos': typeof VideosRoute
-  '/admin/login': typeof AdminLoginRoute
-  '/gallery/$albumId': typeof GalleryAlbumIdRoute
-  '/lectures/$lectureId': typeof LecturesLectureIdRoute
+  '/aims-goals': typeof AimsGoalsRoute
+  '/donation': typeof DonationRoute
+  '/lectures': typeof LecturesRoute
+  '/majalis': typeof MajalisRoute
+  '/open-book-quiz': typeof OpenBookQuizRoute
+  '/publications': typeof PublicationsRoute
+  '/quiz-dashboard': typeof QuizDashboardRoute
+  '/sign-board': typeof SignBoardRoute
+  '/software': typeof SoftwareRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/about'
-    | '/all-lectures'
-    | '/contact'
-    | '/gallery'
+    | '/aims-goals'
+    | '/donation'
     | '/lectures'
-    | '/recently-conducted'
-    | '/videos'
-    | '/admin/login'
-    | '/gallery/$albumId'
-    | '/lectures/$lectureId'
+    | '/majalis'
+    | '/open-book-quiz'
+    | '/publications'
+    | '/quiz-dashboard'
+    | '/sign-board'
+    | '/software'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/about'
-    | '/all-lectures'
-    | '/contact'
-    | '/gallery'
+    | '/aims-goals'
+    | '/donation'
     | '/lectures'
-    | '/recently-conducted'
-    | '/videos'
-    | '/admin/login'
-    | '/gallery/$albumId'
-    | '/lectures/$lectureId'
+    | '/majalis'
+    | '/open-book-quiz'
+    | '/publications'
+    | '/quiz-dashboard'
+    | '/sign-board'
+    | '/software'
   id:
     | '__root__'
     | '/'
-    | '/about'
-    | '/all-lectures'
-    | '/contact'
-    | '/gallery'
+    | '/aims-goals'
+    | '/donation'
     | '/lectures'
-    | '/recently-conducted'
-    | '/videos'
-    | '/admin/login'
-    | '/gallery/$albumId'
-    | '/lectures/$lectureId'
+    | '/majalis'
+    | '/open-book-quiz'
+    | '/publications'
+    | '/quiz-dashboard'
+    | '/sign-board'
+    | '/software'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
-  AllLecturesRoute: typeof AllLecturesRoute
-  ContactRoute: typeof ContactRoute
-  GalleryRoute: typeof GalleryRouteWithChildren
-  LecturesRoute: typeof LecturesRouteWithChildren
-  RecentlyConductedRoute: typeof RecentlyConductedRoute
-  VideosRoute: typeof VideosRoute
-  AdminLoginRoute: typeof AdminLoginRoute
+  AimsGoalsRoute: typeof AimsGoalsRoute
+  DonationRoute: typeof DonationRoute
+  LecturesRoute: typeof LecturesRoute
+  MajalisRoute: typeof MajalisRoute
+  OpenBookQuizRoute: typeof OpenBookQuizRoute
+  PublicationsRoute: typeof PublicationsRoute
+  QuizDashboardRoute: typeof QuizDashboardRoute
+  SignBoardRoute: typeof SignBoardRoute
+  SoftwareRoute: typeof SoftwareRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -180,32 +169,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
+    '/aims-goals': {
+      id: '/aims-goals'
+      path: '/aims-goals'
+      fullPath: '/aims-goals'
+      preLoaderRoute: typeof AimsGoalsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/all-lectures': {
-      id: '/all-lectures'
-      path: '/all-lectures'
-      fullPath: '/all-lectures'
-      preLoaderRoute: typeof AllLecturesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/gallery': {
-      id: '/gallery'
-      path: '/gallery'
-      fullPath: '/gallery'
-      preLoaderRoute: typeof GalleryRouteImport
+    '/donation': {
+      id: '/donation'
+      path: '/donation'
+      fullPath: '/donation'
+      preLoaderRoute: typeof DonationRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/lectures': {
@@ -215,77 +190,62 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LecturesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/recently-conducted': {
-      id: '/recently-conducted'
-      path: '/recently-conducted'
-      fullPath: '/recently-conducted'
-      preLoaderRoute: typeof RecentlyConductedRouteImport
+    '/majalis': {
+      id: '/majalis'
+      path: '/majalis'
+      fullPath: '/majalis'
+      preLoaderRoute: typeof MajalisRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/videos': {
-      id: '/videos'
-      path: '/videos'
-      fullPath: '/videos'
-      preLoaderRoute: typeof VideosRouteImport
+    '/open-book-quiz': {
+      id: '/open-book-quiz'
+      path: '/open-book-quiz'
+      fullPath: '/open-book-quiz'
+      preLoaderRoute: typeof OpenBookQuizRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin/login': {
-      id: '/admin/login'
-      path: '/admin/login'
-      fullPath: '/admin/login'
-      preLoaderRoute: typeof AdminLoginRouteImport
+    '/publications': {
+      id: '/publications'
+      path: '/publications'
+      fullPath: '/publications'
+      preLoaderRoute: typeof PublicationsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/gallery/$albumId': {
-      id: '/gallery/$albumId'
-      path: '/$albumId'
-      fullPath: '/gallery/$albumId'
-      preLoaderRoute: typeof GalleryAlbumIdRouteImport
-      parentRoute: typeof GalleryRoute
+    '/quiz-dashboard': {
+      id: '/quiz-dashboard'
+      path: '/quiz-dashboard'
+      fullPath: '/quiz-dashboard'
+      preLoaderRoute: typeof QuizDashboardRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/lectures/$lectureId': {
-      id: '/lectures/$lectureId'
-      path: '/$lectureId'
-      fullPath: '/lectures/$lectureId'
-      preLoaderRoute: typeof LecturesLectureIdRouteImport
-      parentRoute: typeof LecturesRoute
+    '/sign-board': {
+      id: '/sign-board'
+      path: '/sign-board'
+      fullPath: '/sign-board'
+      preLoaderRoute: typeof SignBoardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/software': {
+      id: '/software'
+      path: '/software'
+      fullPath: '/software'
+      preLoaderRoute: typeof SoftwareRouteImport
+      parentRoute: typeof rootRouteImport
     }
   }
 }
 
-interface GalleryRouteChildren {
-  GalleryAlbumIdRoute: typeof GalleryAlbumIdRoute
-}
-
-const GalleryRouteChildren: GalleryRouteChildren = {
-  GalleryAlbumIdRoute: GalleryAlbumIdRoute,
-}
-
-const GalleryRouteWithChildren =
-  GalleryRoute._addFileChildren(GalleryRouteChildren)
-
-interface LecturesRouteChildren {
-  LecturesLectureIdRoute: typeof LecturesLectureIdRoute
-}
-
-const LecturesRouteChildren: LecturesRouteChildren = {
-  LecturesLectureIdRoute: LecturesLectureIdRoute,
-}
-
-const LecturesRouteWithChildren = LecturesRoute._addFileChildren(
-  LecturesRouteChildren,
-)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
-  AllLecturesRoute: AllLecturesRoute,
-  ContactRoute: ContactRoute,
-  GalleryRoute: GalleryRouteWithChildren,
-  LecturesRoute: LecturesRouteWithChildren,
-  RecentlyConductedRoute: RecentlyConductedRoute,
-  VideosRoute: VideosRoute,
-  AdminLoginRoute: AdminLoginRoute,
+  AimsGoalsRoute: AimsGoalsRoute,
+  DonationRoute: DonationRoute,
+  LecturesRoute: LecturesRoute,
+  MajalisRoute: MajalisRoute,
+  OpenBookQuizRoute: OpenBookQuizRoute,
+  PublicationsRoute: PublicationsRoute,
+  QuizDashboardRoute: QuizDashboardRoute,
+  SignBoardRoute: SignBoardRoute,
+  SoftwareRoute: SoftwareRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
