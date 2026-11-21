@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AimsGoalsRouteImport } from './routes/aims-goals'
+import { Route as ArticlesRouteImport } from './routes/articles'
 import { Route as DonationRouteImport } from './routes/donation'
 import { Route as LecturesRouteImport } from './routes/lectures'
 import { Route as MajalisRouteImport } from './routes/majalis'
@@ -28,6 +29,11 @@ const IndexRoute = IndexRouteImport.update({
 const AimsGoalsRoute = AimsGoalsRouteImport.update({
   id: '/aims-goals',
   path: '/aims-goals',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ArticlesRoute = ArticlesRouteImport.update({
+  id: '/articles',
+  path: '/articles',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DonationRoute = DonationRouteImport.update({
@@ -74,6 +80,7 @@ const SoftwareRoute = SoftwareRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/aims-goals': typeof AimsGoalsRoute
+  '/articles': typeof ArticlesRoute
   '/donation': typeof DonationRoute
   '/lectures': typeof LecturesRoute
   '/majalis': typeof MajalisRoute
@@ -86,6 +93,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/aims-goals': typeof AimsGoalsRoute
+  '/articles': typeof ArticlesRoute
   '/donation': typeof DonationRoute
   '/lectures': typeof LecturesRoute
   '/majalis': typeof MajalisRoute
@@ -99,6 +107,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/aims-goals': typeof AimsGoalsRoute
+  '/articles': typeof ArticlesRoute
   '/donation': typeof DonationRoute
   '/lectures': typeof LecturesRoute
   '/majalis': typeof MajalisRoute
@@ -113,6 +122,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/aims-goals'
+    | '/articles'
     | '/donation'
     | '/lectures'
     | '/majalis'
@@ -125,6 +135,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/aims-goals'
+    | '/articles'
     | '/donation'
     | '/lectures'
     | '/majalis'
@@ -137,6 +148,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/aims-goals'
+    | '/articles'
     | '/donation'
     | '/lectures'
     | '/majalis'
@@ -150,6 +162,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AimsGoalsRoute: typeof AimsGoalsRoute
+  ArticlesRoute: typeof ArticlesRoute
   DonationRoute: typeof DonationRoute
   LecturesRoute: typeof LecturesRoute
   MajalisRoute: typeof MajalisRoute
@@ -174,6 +187,13 @@ declare module '@tanstack/react-router' {
       path: '/aims-goals'
       fullPath: '/aims-goals'
       preLoaderRoute: typeof AimsGoalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/articles': {
+      id: '/articles'
+      path: '/articles'
+      fullPath: '/articles'
+      preLoaderRoute: typeof ArticlesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/donation': {
@@ -238,6 +258,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AimsGoalsRoute: AimsGoalsRoute,
+  ArticlesRoute: ArticlesRoute,
   DonationRoute: DonationRoute,
   LecturesRoute: LecturesRoute,
   MajalisRoute: MajalisRoute,

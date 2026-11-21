@@ -1,5 +1,5 @@
 export const societySections = [
-  { path: "/", title: "ARTICLES" },
+  { path: "/articles", title: "ARTICLES" },
   { path: "/aims-goals", title: "AIMS & GOALS" },
   { path: "/lectures", title: "LECTURES" },
   { path: "/majalis", title: "MAJALIS" },

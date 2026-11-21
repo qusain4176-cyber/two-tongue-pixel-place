@@ -21,7 +21,7 @@ describe("society section navigation", () => {
   it("gives every section a distinct page path", () => {
     const paths = societySections.map((section) => section.path);
     expect(paths).toEqual([
-      "/",
+      "/articles",
       "/aims-goals",
       "/lectures",
       "/majalis",

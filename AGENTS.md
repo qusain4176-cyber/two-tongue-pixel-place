@@ -31,4 +31,4 @@ use the editor.
 
 ## Project Architecture
 - Keep the society website on the project's TanStack Start routing stack and integrate its data only with the user's explicitly chosen external backend, because Lovable Cloud is prohibited for this project.
-- Keep the ten original society sections as distinct file-based pages, driven by shared section definitions and a responsive shared sidebar, so navigation stays consistent across screens.
+- Keep the home page as its own experience at `/`, and keep the ten original society sections as distinct file-based pages driven by shared section definitions, so home navigation never replaces section content.

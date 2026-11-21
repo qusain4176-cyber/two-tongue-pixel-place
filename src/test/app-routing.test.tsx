@@ -16,6 +16,13 @@ describe("App routing", () => {
     expect(matches.at(-1)?.routeId).not.toBe(rootRouteId);
   });
 
+  it("keeps the homepage and Articles on separate pages", () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+
+    expect(router.matchRoutes("/").at(-1)?.routeId).toBe("/");
+    expect(router.matchRoutes("/articles").at(-1)?.routeId).toBe("/articles");
+  });
+
   it("matches a distinct route for each original society section", () => {
     const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
 
