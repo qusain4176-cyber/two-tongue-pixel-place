@@ -17,7 +17,6 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-import mosqueHome from "@/assets/kabul-mosque-home.jpg.asset.json";
 import societyLogo from "@/assets/al-mehdi-logo.png.asset.json";
 import { Button } from "@/components/ui/button";
 import {
@@ -247,14 +246,6 @@ export function SocietyHomePage() {
       <HomeHeader />
       <main>
         <section className="relative isolate flex min-h-[410px] overflow-hidden bg-deep text-primary-foreground sm:min-h-[500px] xl:min-h-[660px]">
-          <img
-            src={mosqueHome.url}
-            alt=""
-            aria-hidden="true"
-            fetchPriority="high"
-            className="absolute inset-0 size-full object-cover object-center"
-          />
-          <div aria-hidden="true" className="absolute inset-0 bg-deep/65" />
           <div aria-hidden="true" className="pattern-geometric pointer-events-none absolute inset-0 opacity-70" />
           <div
             dir={isUrdu ? "rtl" : "ltr"}
